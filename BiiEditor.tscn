@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cogd2wkqjgfr1"]
+
+[ext_resource type="PackedScene" uid="uid://c1oxd3eyeg1qv" path="res://Mii/MiiCharacter/BiiCharacter.tscn" id="1_1w476"]
+[ext_resource type="Script" uid="uid://b0hte006srv1t" path="res://Mii/MiiData/MiiData.gd" id="2_mavc3"]
+
+[sub_resource type="Resource" id="Resource_qrlva"]
+script = ExtResource("2_mavc3")
+metadata/_custom_type_script = "uid://b0hte006srv1t"
+
+[sub_resource type="Environment" id="Environment_otpid"]
+background_mode = 1
+background_color = Color(0.92363745, 1, 1, 1)
+ssao_enabled = true
+ssil_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_otpid"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_otpid"]
+
+[node name="BiiEditor" type="Node3D" unique_id=1530963408]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=496679304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
+
+[node name="BiiCharacter" parent="." unique_id=448801977 instance=ExtResource("1_1w476")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0, 0)
+DNA = SubResource("Resource_qrlva")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1093388147]
+environment = SubResource("Environment_otpid")
+
+[node name="Setting" type="Node3D" parent="." unique_id=1424430536]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Setting" unique_id=1086837216]
+transform = Transform3D(21.242716, 0, 0, 0, -8.989606e-07, 1.9293522, 0, -20.56582, -8.433465e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_otpid")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Setting" unique_id=101352266]
+transform = Transform3D(21.242716, 0, 0, 0, 20.565819, -7.1054274e-15, 0, 5.684342e-14, 1.9293522, 0, 0, -4)
+mesh = SubResource("QuadMesh_otpid")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Setting" unique_id=1875773398]
+transform = Transform3D(21.242716, 0, 0, 0, 14.54223, 1.3642579, 0, -14.54223, 1.3642579, 0, 0, -2.8933792)
+mesh = SubResource("QuadMesh_otpid")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Setting" unique_id=1986521524]
+transform = Transform3D(0.9200187, 0, 0.39187452, 0, 1, 0, -0.39187452, 0, 0.9200187, -2.263852, 0.50085497, -1.2175355)
+mesh = SubResource("PrismMesh_otpid")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=440394182]
+transform = Transform3D(0.68628937, 0, 0.7273286, -0.23129584, 0.9480882, 0.21824507, -0.6895717, -0.31800735, 0.6506629, 4.0723476, 2.2914126, 3.7386043)
+shadow_enabled = true
+spot_range = 22.66969
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=435994469]
+transform = Transform3D(-0.86181873, -0.30375537, 0.40620345, -0.23129581, 0.9480883, 0.21824504, -0.45140988, 0.094134524, -0.8873375, 0.5437603, 4.8783054, -3.2412274)
+shadow_enabled = true
+spot_range = 22.66969
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=381641689]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=788293694]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HBoxContainer" unique_id=75472244]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/MarginContainer" unique_id=1309208396]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=978395944]
+layout_mode = 2
+text = "Make your Bii !"
+
+[node name="HSlider" type="HSlider" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=708874657]
+layout_mode = 2
+size_flags_horizontal = 3

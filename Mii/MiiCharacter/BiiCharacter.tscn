@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://c1oxd3eyeg1qv"]
+
+[ext_resource type="Script" uid="uid://dcvk34gako27x" path="res://Mii/MiiCharacter/bii_character.gd" id="1_1fkdn"]
+[ext_resource type="PackedScene" uid="uid://ddjgnsasd4lu2" path="res://Guy.glb" id="1_oulqm"]
+[ext_resource type="Script" uid="uid://bvx7vrs6l11ji" path="res://SkeletonScaler.gd" id="2_oonvf"]
+[ext_resource type="Resource" uid="uid://bf6t8fbtq45f1" path="res://Mii/MiiData/Examples/basic.tres" id="5_2jogr"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oulqm"]
+animation = &"metarig_001|mixamo_com|Layer0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oonvf"]
+animation = &"metarig_004|metarig|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6277s"]
+animation = &"metarig_003|mixamo_com|Layer0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1fkdn"]
+animation = &"metarig|mixamo_com|Layer0"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_otpid"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_oulqm")
+blend_point_0/pos = Vector2(0, 0.5)
+blend_point_0/name = &"metarig_001|mixamo_com|Layer0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_oonvf")
+blend_point_1/pos = Vector2(0, 0)
+blend_point_1/name = &"metarig_004|metarig|Idle"
+blend_point_2/node = SubResource("AnimationNodeAnimation_6277s")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_2/name = &"metarig_003|mixamo_com|Layer0"
+blend_point_3/node = SubResource("AnimationNodeAnimation_1fkdn")
+blend_point_3/pos = Vector2(0, 1)
+blend_point_3/name = &"metarig|mixamo_com|Layer0"
+
+[node name="BiiCharacter" type="Node3D" unique_id=448801977 node_paths=PackedStringArray("scaler", "body", "head", "larm", "rarm")]
+script = ExtResource("1_1fkdn")
+DNA = ExtResource("5_2jogr")
+scaler = NodePath("Guy/metarig_004/GeneralSkeleton/SkeletonScaler3D")
+body = NodePath("Guy/metarig_004/GeneralSkeleton/Body")
+head = NodePath("Guy/metarig_004/GeneralSkeleton/Head")
+larm = NodePath("Guy/metarig_004/GeneralSkeleton/LeftArm")
+rarm = NodePath("Guy/metarig_004/GeneralSkeleton/RightArm")
+
+[node name="Guy" parent="." unique_id=1379844246 instance=ExtResource("1_oulqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0006156564, 0, -0.0038118362)
+
+[node name="Empty" parent="Guy" index="0" unique_id=1733186604]
+transform = Transform3D(2.0928214, 0, 0, 0, 0, -2.0928214, 0, 2.0928214, 0, 0.025786579, 1.3131268, -1)
+
+[node name="metarig_004" parent="Guy" index="1" unique_id=1151089299]
+transform = Transform3D(0.9999998, -5.830145e-06, 5.3238393e-05, 5.8301916e-06, 0.99999994, -8.8656594e-07, -5.3238382e-05, 8.868763e-07, 0.99999994, -1.18746575e-05, -7.2351268e-06, -1.7028708e-05)
+
+[node name="GeneralSkeleton" parent="Guy/metarig_004" index="0" unique_id=907404769]
+bones/1/rotation = Quaternion(-0.009576361, -1.1705116e-05, -3.5883514e-07, 0.99995416)
+bones/2/rotation = Quaternion(-0.010151639, -2.5463937e-06, 4.7570957e-06, 0.99994856)
+bones/3/rotation = Quaternion(-0.004797567, -2.667849e-06, 4.8387215e-06, 0.99998856)
+bones/4/rotation = Quaternion(-1.1551249e-05, -1.1502757e-06, 4.8355605e-07, 1)
+bones/5/rotation = Quaternion(-1.1424008e-05, -1.127095e-06, 4.247647e-07, 1)
+bones/6/rotation = Quaternion(-0.018097423, -1.0477871e-06, 4.438961e-07, 0.9998363)
+bones/8/rotation = Quaternion(0.50002354, 0.4999463, 0.5000368, -0.49999338)
+bones/9/rotation = Quaternion(-0.00021934205, 0.9666149, -0.25623375, 0.0001094427)
+bones/10/rotation = Quaternion(-0.01468082, -0.70656097, 0.0164762, 0.707308)
+bones/11/rotation = Quaternion(8.997845e-06, 0.70709395, -1.3717834e-06, 0.7071196)
+bones/13/rotation = Quaternion(0.50006974, -0.49990296, -0.5000398, -0.49998748)
+bones/14/rotation = Quaternion(0.00038693825, 0.9463058, -0.32327145, -0.00079857383)
+bones/15/rotation = Quaternion(-0.041780185, 0.70416, -0.045316994, 0.707361)
+bones/16/rotation = Quaternion(8.000228e-05, -0.70704484, -6.191444e-05, 0.7071687)
+bones/18/rotation = Quaternion(-1.5631919e-07, 0.7071068, 0.7071068, -1.6371385e-07)
+bones/20/rotation = Quaternion(-1.5631919e-07, 0.7071068, 0.7071068, -1.6371385e-07)
+bones/26/rotation = Quaternion(5.9769147e-05, 2.0756743e-05, 1, -4.3773955e-05)
+bones/27/rotation = Quaternion(-1.7155913e-05, 1, -0.00014777691, 1.718805e-05)
+bones/28/rotation = Quaternion(-4.9969327e-05, 0.70702904, -0.7071845, 5.830697e-05)
+bones/29/rotation = Quaternion(3.4854912e-09, 1, 2.7976344e-07, -5.608719e-09)
+bones/33/rotation = Quaternion(-8.0551064e-05, -1.1132545e-05, 1, 5.55814e-05)
+bones/34/rotation = Quaternion(2.4586032e-05, 1, -0.00013825296, -3.5603483e-05)
+bones/35/rotation = Quaternion(5.8229045e-05, 0.70702684, -0.7071867, -6.782717e-05)
+bones/36/rotation = Quaternion(3.4824021e-09, 1, 8.176358e-06, -5.5679403e-09)
+bones/38/rotation = Quaternion(-2.6041172e-07, -2.8749844e-07, -0.7071068, 0.7071068)
+
+[node name="SkeletonScaler3D" type="SkeletonModifier3D" parent="Guy/metarig_004/GeneralSkeleton" index="6" unique_id=1863961602]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("2_oonvf")
+data = ExtResource("5_2jogr")
+metadata/_custom_type_script = "uid://bvx7vrs6l11ji"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=815925150]
+root_node = NodePath("../Guy")
+tree_root = SubResource("AnimationNodeBlendSpace2D_otpid")
+anim_player = NodePath("../Guy/AnimationPlayer")
+parameters/blend_position = Vector2(-0.000874877, -0.019607902)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=662386258]
+
+[editable path="Guy"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MiiData" format=3 uid="uid://bf6t8fbtq45f1"]
+
+[ext_resource type="Script" uid="uid://b0hte006srv1t" path="res://Mii/MiiData/MiiData.gd" id="1_ay7nc"]
+
+[resource]
+script = ExtResource("1_ay7nc")
+favourite_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+skin_color = Color(0.39, 0.18642001, 0.050699998, 1)
+height = 1.5
+top_radius = 2.0
+bottom_radius = 0.5
+leg_length = 0.7849999999999999
+hand_radius = 0.05
+metadata/_custom_type_script = "uid://b0hte006srv1t"

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://6h5qkgamwe82"]
+
+[ext_resource type="PackedScene" uid="uid://c1oxd3eyeg1qv" path="res://Mii/MiiCharacter/BiiCharacter.tscn" id="1_mncer"]
+[ext_resource type="Script" uid="uid://b0hte006srv1t" path="res://Mii/MiiData/MiiData.gd" id="2_cguwc"]
+
+[sub_resource type="Environment" id="Environment_otpid"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.8
+ambient_light_color = Color(0.5764706, 1, 1, 1)
+ambient_light_energy = 0.8
+ssao_enabled = true
+ssil_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_otpid"]
+vertices = PackedVector3Array(3.068932, 0.3481394, -8.214479, 3.068932, 0.3481394, -7.0144796, 4.068932, 0.3481394, -5.61448, 7.8689322, 0.3481394, -8.214479, 7.8689322, 0.3481394, -2.8144798, 4.268932, 0.3481394, -2.8144798, 2.4689322, 0.5981394, -1.4144797, 3.2689319, 0.8481394, -2.21448, 2.8689318, 1.0981394, -2.8144798, 1.668932, 1.0981394, -1.2144799, 2.8689318, 1.0981394, -5.2144794, -2.7310681, 1.0981394, -5.61448, -3.1310682, 1.0981394, -5.61448, -3.1310682, 0.8481394, 0.38551998, 1.8689318, 1.0981394, -6.81448, 1.068932, 1.0981394, -7.21448, -1.5310681, 1.0981394, -7.0144796, 1.668932, 0.8481394, 0.38551998, 2.8689318, 0.5981394, -1.2144799, 4.068932, 0.3481394, -2.21448, 3.068932, 0.3481394, 0.18552017, 3.068932, 0.3481394, 2.7855206, 7.8689322, 0.3481394, 2.7855206, -3.1310682, 0.8481394, 5.38552, 1.668932, 0.8481394, 5.38552)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 2, 4), PackedInt32Array(4, 2, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(8, 9, 10), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 12), PackedInt32Array(12, 9, 13), PackedInt32Array(14, 10, 15), PackedInt32Array(15, 10, 16), PackedInt32Array(16, 10, 11), PackedInt32Array(9, 17, 13), PackedInt32Array(18, 6, 7), PackedInt32Array(7, 19, 18), PackedInt32Array(18, 19, 20), PackedInt32Array(20, 19, 21), PackedInt32Array(21, 19, 22), PackedInt32Array(22, 19, 4), PackedInt32Array(19, 5, 4), PackedInt32Array(24, 23, 17), PackedInt32Array(17, 23, 13)]
+geometry_parsed_geometry_type = 0
+cell_size = 0.2
+agent_max_slope = 60.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_otpid"]
+size = Vector3(5.9379272, 0.2475586, 12.085449)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_otpid"]
+top_radius = 3.4194336
+bottom_radius = 3.4194336
+height = 1.3037109
+
+[sub_resource type="PrismMesh" id="PrismMesh_otpid"]
+left_to_right = 0.0
+size = Vector3(1.63, 1.29, 1)
+
+[sub_resource type="Resource" id="Resource_1fkdn"]
+script = ExtResource("2_cguwc")
+height = 1.5
+top_radius = 0.8340000000000001
+bottom_radius = 0.792
+leg_length = 0.895
+metadata/_custom_type_script = "uid://b0hte006srv1t"
+
+[sub_resource type="Resource" id="Resource_sreuk"]
+script = ExtResource("2_cguwc")
+height = 1.021
+top_radius = 0.998
+bottom_radius = 0.86
+leg_length = 0.645
+metadata/_custom_type_script = "uid://b0hte006srv1t"
+
+[node name="Node3D" type="Node3D" unique_id=528217428]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1381499849]
+transform = Transform3D(1, 0, 0, 0, 0.8911877, 0.45363474, 0, -0.45363474, 0.8911877, 2.285645, 3.0714455, 5.825172)
+fov = 64.04044
+
+[node name="Guy" parent="." unique_id=448801977 instance=ExtResource("1_mncer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4164073, 0.42685747, 0.07725763)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1702024197]
+environment = SubResource("Environment_otpid")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=723155502]
+transform = Transform3D(0.46060684, -0.7358304, 0.49638188, 0.19452842, 0.62932795, 0.7523996, -0.86602545, -0.24999999, 0.43301263, 2.671332, 2.2243772, 1)
+light_indirect_energy = 0.5
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment" unique_id=699124478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45498586, 2.616268, -5.299879)
+light_color = Color(0.33731458, 0.51969814, 0.8949673, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 7.26833
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=2005204172]
+navigation_mesh = SubResource("NavigationMesh_otpid")
+
+[node name="Level" type="Node3D" parent="NavigationRegion3D" unique_id=38372065]
+
+[node name="Block1" type="MeshInstance3D" parent="NavigationRegion3D/Level" unique_id=587031688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.577417, -0.15051663, -2.7717557)
+mesh = SubResource("BoxMesh_otpid")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Level" unique_id=493142830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76210463, 0.27934486, 0)
+mesh = SubResource("BoxMesh_otpid")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Level" unique_id=705158858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0034179688, -4.3885727)
+mesh = SubResource("CylinderMesh_otpid")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/Level" unique_id=1872146454]
+transform = Transform3D(1.0446965, 0, -2.8581328, 0, 1.0106367, 0, 1.3095993, 0, 2.279996, 2.5585268, 5.9604645e-08, -1.0409815)
+mesh = SubResource("PrismMesh_otpid")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=710924070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.397925, 1.5996552, 1.83642)
+light_color = Color(0.59333193, 0.9999997, 0.60256493, 1)
+shadow_enabled = true
+omni_range = 6.619759
+
+[node name="BiiCharacter" parent="." unique_id=1343267674 instance=ExtResource("1_mncer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21529078, 0.41113055, -0.12709868)
+DNA = SubResource("Resource_1fkdn")
+
+[node name="BiiCharacter2" parent="." unique_id=1445243662 instance=ExtResource("1_mncer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68718505, 0.389686, 0.14336538)
+DNA = SubResource("Resource_sreuk")
