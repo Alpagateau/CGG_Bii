@@ -13,10 +13,11 @@ ssao_enabled = true
 ssil_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_otpid"]
-vertices = PackedVector3Array(3.068932, 0.3481394, -8.214479, 3.068932, 0.3481394, -7.0144796, 4.068932, 0.3481394, -5.61448, 7.8689322, 0.3481394, -8.214479, 7.8689322, 0.3481394, -2.8144798, 4.268932, 0.3481394, -2.8144798, 2.4689322, 0.5981394, -1.4144797, 3.2689319, 0.8481394, -2.21448, 2.8689318, 1.0981394, -2.8144798, 1.668932, 1.0981394, -1.2144799, 2.8689318, 1.0981394, -5.2144794, -2.7310681, 1.0981394, -5.61448, -3.1310682, 1.0981394, -5.61448, -3.1310682, 0.8481394, 0.38551998, 1.8689318, 1.0981394, -6.81448, 1.068932, 1.0981394, -7.21448, -1.5310681, 1.0981394, -7.0144796, 1.668932, 0.8481394, 0.38551998, 2.8689318, 0.5981394, -1.2144799, 4.068932, 0.3481394, -2.21448, 3.068932, 0.3481394, 0.18552017, 3.068932, 0.3481394, 2.7855206, 7.8689322, 0.3481394, 2.7855206, -3.1310682, 0.8481394, 5.38552, 1.668932, 0.8481394, 5.38552)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 2, 4), PackedInt32Array(4, 2, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(8, 9, 10), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 12), PackedInt32Array(12, 9, 13), PackedInt32Array(14, 10, 15), PackedInt32Array(15, 10, 16), PackedInt32Array(16, 10, 11), PackedInt32Array(9, 17, 13), PackedInt32Array(18, 6, 7), PackedInt32Array(7, 19, 18), PackedInt32Array(18, 19, 20), PackedInt32Array(20, 19, 21), PackedInt32Array(21, 19, 22), PackedInt32Array(22, 19, 4), PackedInt32Array(19, 5, 4), PackedInt32Array(24, 23, 17), PackedInt32Array(17, 23, 13)]
+vertices = PackedVector3Array(3.0189319, 0.8481394, -2.0644798, 2.7689319, 0.8481394, -1.8144798, 3.2689319, 0.3481394, -1.3144798, 4.268932, 0.3481394, -1.8144798, 4.768932, 0.3481394, -2.3144798, 3.5189319, 0.3481394, 2.4355202, 7.518932, 0.3481394, 2.4355202, 3.5189319, 0.3481394, -7.81448, 3.5189319, 0.3481394, -7.06448, 4.518932, 0.3481394, -5.81448, 7.518932, 0.3481394, -7.81448, 2.5189319, 1.0981394, -2.5644798, 1.2689319, 1.0981394, -1.3144798, -2.7310681, 0.8481394, 4.93552, 1.2689319, 0.8481394, 4.93552, -2.7310681, 1.0981394, -5.31448, 2.5189319, 1.0981394, -5.31448, 2.0189319, 1.0981394, -6.31448, 1.0189319, 1.0981394, -6.81448, -1.2310681, 1.0981394, -6.81448, -1.9810681, 1.0981394, -6.31448)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(5, 4, 6), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(9, 10, 4), PackedInt32Array(4, 10, 6), PackedInt32Array(3, 5, 2), PackedInt32Array(0, 1, 11), PackedInt32Array(11, 1, 12), PackedInt32Array(14, 13, 12), PackedInt32Array(12, 13, 15), PackedInt32Array(18, 17, 16), PackedInt32Array(15, 20, 19), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 15), PackedInt32Array(15, 16, 11), PackedInt32Array(15, 11, 12)]
 geometry_parsed_geometry_type = 0
-cell_size = 0.2
+cell_height = 0.01
+agent_radius = 1.0
 agent_max_slope = 60.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_otpid"]
@@ -30,6 +31,17 @@ height = 1.3037109
 [sub_resource type="PrismMesh" id="PrismMesh_otpid"]
 left_to_right = 0.0
 size = Vector3(1.63, 1.29, 1)
+
+[sub_resource type="Resource" id="Resource_cguwc"]
+script = ExtResource("2_cguwc")
+favourite_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+skin_color = Color(0.39, 0.18642001, 0.050699998, 1)
+height = 0.5
+top_radius = 0.5
+bottom_radius = 1.987
+leg_length = 0.7849999999999999
+hand_radius = 0.15
+metadata/_custom_type_script = "uid://b0hte006srv1t"
 
 [sub_resource type="Resource" id="Resource_1fkdn"]
 script = ExtResource("2_cguwc")
@@ -50,11 +62,8 @@ metadata/_custom_type_script = "uid://b0hte006srv1t"
 [node name="Node3D" type="Node3D" unique_id=528217428]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1381499849]
-transform = Transform3D(1, 0, 0, 0, 0.8911877, 0.45363474, 0, -0.45363474, 0.8911877, 2.285645, 3.0714455, 5.825172)
+transform = Transform3D(1, 0, 0, 0, 0.8911877, 0.45363474, 0, -0.45363474, 0.8911877, 2.286, 5.531, 10.44)
 fov = 64.04044
-
-[node name="Guy" parent="." unique_id=448801977 instance=ExtResource("1_mncer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4164073, 0.42685747, 0.07725763)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1702024197]
 environment = SubResource("Environment_otpid")
@@ -97,10 +106,20 @@ light_color = Color(0.59333193, 0.9999997, 0.60256493, 1)
 shadow_enabled = true
 omni_range = 6.619759
 
+[node name="Guy" parent="." unique_id=448801977 instance=ExtResource("1_mncer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6238972, 1.024282, -3.555721)
+DNA = SubResource("Resource_cguwc")
+nav_debug = null
+current_dest = Vector3(1.0078017, 1.0981394, -5.781435)
+
 [node name="BiiCharacter" parent="." unique_id=1343267674 instance=ExtResource("1_mncer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21529078, 0.41113055, -0.12709868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.521197, 0.43315023, -2.5561016)
 DNA = SubResource("Resource_1fkdn")
+nav_debug = null
+current_dest = Vector3(2.4655027, 1.0432441, -2.2914693)
 
 [node name="BiiCharacter2" parent="." unique_id=1445243662 instance=ExtResource("1_mncer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68718505, 0.389686, 0.14336538)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115386546, 0.9473239, 1.9310594)
 DNA = SubResource("Resource_sreuk")
+nav_debug = null
+current_dest = Vector3(3.5543652, 0.3481394, -0.6152014)
