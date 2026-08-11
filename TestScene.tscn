@@ -107,19 +107,16 @@ shadow_enabled = true
 omni_range = 6.619759
 
 [node name="Guy" parent="." unique_id=448801977 instance=ExtResource("1_mncer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6238972, 1.024282, -3.555721)
+transform = Transform3D(0.99998134, 0, 0, 0, 0.999981, 0, 0, 0, 0.9999792, 5.722412, 0.29937056, -2.9696531)
 DNA = SubResource("Resource_cguwc")
-nav_debug = null
-current_dest = Vector3(1.0078017, 1.0981394, -5.781435)
+current_dest = Vector3(0.114724636, 0.93541926, 2.7535238)
 
 [node name="BiiCharacter" parent="." unique_id=1343267674 instance=ExtResource("1_mncer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.521197, 0.43315023, -2.5561016)
+transform = Transform3D(0.9999807, 0, 0, 0, 0.9999987, 0, 0, 0, 0.9999857, 9.4929695, 0.68385756, -9.179052)
 DNA = SubResource("Resource_1fkdn")
-nav_debug = null
-current_dest = Vector3(2.4655027, 1.0432441, -2.2914693)
+current_dest = Vector3(3.398011, 0.45945525, -1.5738221)
 
 [node name="BiiCharacter2" parent="." unique_id=1445243662 instance=ExtResource("1_mncer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115386546, 0.9473239, 1.9310594)
+transform = Transform3D(0.9999819, 0, 0, 0, 0.9999916, 0, 0, 0, 0.9999848, 1.8072642, 0.94684553, -1.1924088)
 DNA = SubResource("Resource_sreuk")
-nav_debug = null
-current_dest = Vector3(3.5543652, 0.3481394, -0.6152014)
+current_dest = Vector3(5.355091, 0.3481394, -4.468443)

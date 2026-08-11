@@ -55,25 +55,33 @@ func change_bii():
 	#larm.material_override = body_mat
 	
 # Needs the movement vector as step
-func move(step: Vector3):
+func move_to(step: Vector3):
+	#look_at(step) 
 	translate_object_local(step)
 	
 func find_new_dest() -> Vector3:
-	return NavigationServer3D.region_get_random_point(nav_region.get_rid(), 1, false)
+	"""
+	Used for wandering, returns a random Vector3 in the known plane
+	"""
+	return NavigationServer3D.region_get_random_point(nav_region.get_rid(), 1, true)
 
 func wander(_delta : float):
-	if (current_dest == Vector3.ZERO or $NavigationAgent3D.is_target_reached() or current_dest == global_position):
+	if (current_dest == Vector3.ZERO or 
+	$NavigationAgent3D.is_target_reached() or 
+	current_dest == global_position):
+		
 		current_dest = find_new_dest()
 		$NavigationAgent3D.set_target_position(current_dest)
 		if nav_debug : print("Updated Destination to", current_dest)
 		
 	var next_step = $NavigationAgent3D.get_next_path_position()
 	var movement_vector = (next_step - global_position).normalized() * speed * _delta
-	move(movement_vector)
+	move_to(movement_vector)
 
 func _process(_delta : float):
 	$NavigationAgent3D.debug_enabled = nav_debug
 
 func _physics_process(_delta: float) -> void:
+	# Add a switch case if multiple behaviours
 	if (use_navigation and wander_around):
 		wander(_delta)
