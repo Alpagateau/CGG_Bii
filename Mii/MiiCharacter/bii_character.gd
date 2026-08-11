@@ -19,6 +19,10 @@ class_name BiiCharacter
 @export var larm   : MeshInstance3D
 @export var rarm   : MeshInstance3D
 
+var body_mat     : StandardMaterial3D
+var hand_mat     : StandardMaterial3D
+var head_mat     : StandardMaterial3D
+
 @export_category("Navigation")
 @export var nav_debug : bool = false
 @export var use_navigation : bool = true
@@ -27,9 +31,8 @@ class_name BiiCharacter
 @export var current_dest : Vector3
 var nav_region : NavigationRegion3D
 
-var body_mat     : StandardMaterial3D
-var hand_mat     : StandardMaterial3D
-var head_mat     : StandardMaterial3D
+@export_category("Standard Variables")
+var model : Node3D
 
 func _ready():
 	if not DNA.changed.is_connected(change_bii):
@@ -37,6 +40,7 @@ func _ready():
 	scaler.data = DNA
 	nav_region = $"../NavigationRegion3D"
 	current_dest = Vector3.ZERO
+	model = $Guy
 
 func change_bii():
 	print("Change bii")
@@ -56,7 +60,7 @@ func change_bii():
 	
 # Needs the movement vector as step
 func move_to(step: Vector3):
-	#look_at(step) 
+	model.look_at(global_position - step * 100)
 	translate_object_local(step)
 	
 func find_new_dest() -> Vector3:
