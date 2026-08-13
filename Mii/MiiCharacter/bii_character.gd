@@ -33,6 +33,7 @@ var nav_region : NavigationRegion3D
 
 @export_category("Standard Variables")
 var model : Node3D
+@export var rotation_speed : float = 2
 
 func _ready():
 	if not DNA.changed.is_connected(change_bii):
@@ -60,14 +61,12 @@ func change_bii():
 	
 # Needs the movement vector as step
 func move_to(step: Vector3):
-	var where_to_watch = Vector3(model.global_position.x + step.x, 
-						  model.global_position.y, 
-						  model.global_position.z + step.z)  
-						# * 100 is because else lookat
-						# points on top of player
-						
-	model.look_at(where_to_watch, Vector3.UP, true)
 	translate_object_local(step)
+
+func smooth_look_at(direction : Vector3, _delta: float):
+	# Si tu comprends pas revoie tes cours de trigo lol
+	model.rotation.y = lerp_angle(model.rotation.y, atan2(-direction.x, -direction.z) + PI, _delta * rotation_speed) 
+
 	
 func find_new_dest() -> Vector3:
 	"""
@@ -88,7 +87,9 @@ func wander(_delta : float):
 		
 	var next_step = $NavigationAgent3D.get_next_path_position()
 	var movement_vector = (next_step - global_position).normalized() * speed * _delta
+	
 	move_to(movement_vector)
+	smooth_look_at(movement_vector, _delta)
 
 func _process(_delta : float):
 	$NavigationAgent3D.debug_enabled = nav_debug
