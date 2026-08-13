@@ -65,7 +65,8 @@ func move_to(step: Vector3):
 
 func smooth_look_at(direction : Vector3, _delta: float):
 	# Si tu comprends pas revoie tes cours de trigo lol
-	model.rotation.y = lerp_angle(model.rotation.y, atan2(-direction.x, -direction.z) + PI, _delta * rotation_speed) 
+	model.rotation.y = lerp_angle(model.rotation.y, 
+	atan2(-direction.x, -direction.z) + PI, _delta * rotation_speed) 
 
 	
 func find_new_dest() -> Vector3:
@@ -73,8 +74,13 @@ func find_new_dest() -> Vector3:
 	Used for wandering.
 	Returns a random Vector3 in the known plane
 	called nav_region
+	Returns null if no region is found
 	"""
-	return NavigationServer3D.region_get_random_point(nav_region.get_rid(), 1, true)
+	
+	if (nav_region != null) : 
+		return NavigationServer3D.region_get_random_point(nav_region.get_rid(), 
+		1, true)
+	return Vector3.ZERO
 
 func wander(_delta : float):
 	if (current_dest == Vector3.ZERO or 
@@ -82,6 +88,9 @@ func wander(_delta : float):
 	current_dest == global_position):
 		
 		current_dest = find_new_dest()
+		# Failure case
+		if current_dest == Vector3.ZERO :
+			return
 		$NavigationAgent3D.set_target_position(current_dest)
 		if nav_debug : print("Updated Destination to", current_dest)
 		
