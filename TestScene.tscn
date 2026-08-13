@@ -16,7 +16,6 @@ ssil_enabled = true
 vertices = PackedVector3Array(3.0189319, 0.8481394, -2.0644798, 2.7689319, 0.8481394, -1.8144798, 3.2689319, 0.3481394, -1.3144798, 4.268932, 0.3481394, -1.8144798, 4.768932, 0.3481394, -2.3144798, 3.5189319, 0.3481394, 2.4355202, 7.518932, 0.3481394, 2.4355202, 3.5189319, 0.3481394, -7.81448, 3.5189319, 0.3481394, -7.06448, 4.518932, 0.3481394, -5.81448, 7.518932, 0.3481394, -7.81448, 2.5189319, 1.0981394, -2.5644798, 1.2689319, 1.0981394, -1.3144798, -2.7310681, 0.8481394, 4.93552, 1.2689319, 0.8481394, 4.93552, -2.7310681, 1.0981394, -5.31448, 2.5189319, 1.0981394, -5.31448, 2.0189319, 1.0981394, -6.31448, 1.0189319, 1.0981394, -6.81448, -1.2310681, 1.0981394, -6.81448, -1.9810681, 1.0981394, -6.31448)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(5, 4, 6), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(9, 10, 4), PackedInt32Array(4, 10, 6), PackedInt32Array(3, 5, 2), PackedInt32Array(0, 1, 11), PackedInt32Array(11, 1, 12), PackedInt32Array(14, 13, 12), PackedInt32Array(12, 13, 15), PackedInt32Array(18, 17, 16), PackedInt32Array(15, 20, 19), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 15), PackedInt32Array(15, 16, 11), PackedInt32Array(15, 11, 12)]
 geometry_parsed_geometry_type = 0
-cell_height = 0.01
 agent_radius = 1.0
 agent_max_slope = 60.0
 
@@ -36,11 +35,11 @@ size = Vector3(1.63, 1.29, 1)
 script = ExtResource("2_cguwc")
 favourite_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
 skin_color = Color(0.39, 0.18642001, 0.050699998, 1)
-height = 0.5
-top_radius = 0.5
-bottom_radius = 1.987
-leg_length = 0.7849999999999999
-hand_radius = 0.15
+height = 1.5
+top_radius = 2.0
+bottom_radius = 0.5
+leg_length = 0.675
+hand_radius = 0.05
 metadata/_custom_type_script = "uid://b0hte006srv1t"
 
 [sub_resource type="Resource" id="Resource_1fkdn"]
@@ -107,16 +106,16 @@ shadow_enabled = true
 omni_range = 6.619759
 
 [node name="Guy" parent="." unique_id=448801977 instance=ExtResource("1_mncer")]
-transform = Transform3D(0.99998134, 0, 0, 0, 0.999981, 0, 0, 0, 0.9999792, 5.722412, 0.29937056, -2.9696531)
+transform = Transform3D(0.99996835, 0, 0, 0, 0.99996436, 0, 0, 0, 0.99996877, 0, 0.8996322, 2.5484009)
 DNA = SubResource("Resource_cguwc")
-current_dest = Vector3(0.114724636, 0.93541926, 2.7535238)
+current_dest = Vector3(-2.1569693, 0.95611596, 1.0825796)
 
 [node name="BiiCharacter" parent="." unique_id=1343267674 instance=ExtResource("1_mncer")]
-transform = Transform3D(0.9999807, 0, 0, 0, 0.9999987, 0, 0, 0, 0.9999857, 9.4929695, 0.68385756, -9.179052)
+transform = Transform3D(0.9999663, 0, 0, 0, 0.9999864, 0, 0, 0, 0.9999756, 1.6068624, 0.88790417, 0.85459566)
 DNA = SubResource("Resource_1fkdn")
-current_dest = Vector3(3.398011, 0.45945525, -1.5738221)
+current_dest = Vector3(7.000113, 0.3481394, -6.8051453)
 
 [node name="BiiCharacter2" parent="." unique_id=1445243662 instance=ExtResource("1_mncer")]
-transform = Transform3D(0.9999819, 0, 0, 0, 0.9999916, 0, 0, 0, 0.9999848, 1.8072642, 0.94684553, -1.1924088)
+transform = Transform3D(0.99996847, 0, 0, 0, 0.99997985, 0, 0, 0, 0.9999729, -2.432357, 0.9345329, 3.4214249)
 DNA = SubResource("Resource_sreuk")
-current_dest = Vector3(5.355091, 0.3481394, -4.468443)
+current_dest = Vector3(6.1906223, 0.3481394, -2.4677048)

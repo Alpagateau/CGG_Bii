@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node3D
 class_name BiiCharacter
 
@@ -60,13 +60,19 @@ func change_bii():
 	
 # Needs the movement vector as step
 func move_to(step: Vector3):
-	model.look_at(global_position - step * 100) # *100 is because else lookat
-												# points on top of player
+	var where_to_watch = Vector3(model.global_position.x + step.x, 
+						  model.global_position.y, 
+						  model.global_position.z + step.z)  
+						# * 100 is because else lookat
+						# points on top of player
+						
+	model.look_at(where_to_watch, Vector3.UP, true)
 	translate_object_local(step)
 	
 func find_new_dest() -> Vector3:
 	"""
-	Used for wandering, returns a random Vector3 in the known plane
+	Used for wandering.
+	Returns a random Vector3 in the known plane
 	called nav_region
 	"""
 	return NavigationServer3D.region_get_random_point(nav_region.get_rid(), 1, true)
