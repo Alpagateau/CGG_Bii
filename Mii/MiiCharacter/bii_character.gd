@@ -42,6 +42,9 @@ func _ready():
 	nav_region = $"../NavigationRegion3D"
 	current_dest = Vector3.ZERO
 	model = $Guy
+	
+	if nav_region == null:
+		use_navigation = false
 
 func change_bii():
 	print("Change bii")
