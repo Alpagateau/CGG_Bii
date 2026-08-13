@@ -32,6 +32,7 @@ var head_mat     : StandardMaterial3D
 var nav_region : NavigationRegion3D
 
 @export_category("Standard Variables")
+@export var anim_tree : AnimationTree
 var model : Node3D
 @export var rotation_speed : float = 2
 
@@ -42,6 +43,7 @@ func _ready():
 	nav_region = $"../NavigationRegion3D"
 	current_dest = Vector3.ZERO
 	model = $Guy
+	anim_tree = $AnimationTree
 	
 	if nav_region == null:
 		use_navigation = false
@@ -64,6 +66,7 @@ func change_bii():
 	
 # Needs the movement vector as step
 func move_to(step: Vector3):
+	anim_tree.set("parameters/blend_position", Vector2(0, step.length()*50))
 	translate_object_local(step)
 
 func smooth_look_at(direction : Vector3, _delta: float):
@@ -93,6 +96,7 @@ func wander(_delta : float):
 		current_dest = find_new_dest()
 		# Failure case
 		if current_dest == Vector3.ZERO :
+			move_to(Vector3.ZERO)
 			return
 		$NavigationAgent3D.set_target_position(current_dest)
 		if nav_debug : print("Updated Destination to", current_dest)
@@ -110,3 +114,5 @@ func _physics_process(_delta: float) -> void:
 	# Add a switch case if multiple behaviours
 	if (use_navigation and wander_around):
 		wander(_delta)
+	else:
+		move_to(Vector3.ZERO)
