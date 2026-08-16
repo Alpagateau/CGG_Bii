@@ -40,12 +40,18 @@ func _ready():
 	if not DNA.changed.is_connected(change_bii):
 		DNA.changed.connect(change_bii)
 	scaler.data = DNA
-	nav_region = $"../NavigationRegion3D"
+	var failed_nav = false
+	if use_navigation: 
+		nav_region = $"../NavigationRegion3D"
+		if nav_region == null:
+			failed_nav = true
 	current_dest = Vector3.ZERO
 	model = $Guy
 	anim_tree = $AnimationTree
 	
-	if nav_region == null:
+	if failed_nav:
+		print("navigation was disabled due to missing NavigationRegion3D at \
+		BiiCharacter level.")
 		use_navigation = false
 
 func change_bii():
