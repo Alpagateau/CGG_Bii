@@ -44,6 +44,7 @@ metadata/_custom_type_script = "uid://b0hte006srv1t"
 
 [sub_resource type="Resource" id="Resource_1fkdn"]
 script = ExtResource("2_cguwc")
+skin_color = Color(0.90234524, 0, 0.13100055, 1)
 height = 1.5
 top_radius = 0.8340000000000001
 bottom_radius = 0.792
@@ -106,16 +107,15 @@ shadow_enabled = true
 omni_range = 6.619759
 
 [node name="Guy" parent="." unique_id=448801977 instance=ExtResource("1_mncer")]
-transform = Transform3D(0.99996835, 0, 0, 0, 0.99996436, 0, 0, 0, 0.99996877, 0, 0.8996322, 2.5484009)
+transform = Transform3D(0.99996835, 0, 0, 0, 0.99996436, 0, 0, 0, 0.99996877, 4.624649, 0.49802774, -3.4963577)
 DNA = SubResource("Resource_cguwc")
-current_dest = Vector3(-2.1569693, 0.95611596, 1.0825796)
+use_navigation = true
+current_dest = Vector3(7.1094785, 0.34813938, -7.3252273)
 
 [node name="BiiCharacter" parent="." unique_id=1343267674 instance=ExtResource("1_mncer")]
 transform = Transform3D(0.9999663, 0, 0, 0, 0.9999864, 0, 0, 0, 0.9999756, 1.6068624, 0.88790417, 0.85459566)
 DNA = SubResource("Resource_1fkdn")
-current_dest = Vector3(7.000113, 0.3481394, -6.8051453)
 
 [node name="BiiCharacter2" parent="." unique_id=1445243662 instance=ExtResource("1_mncer")]
 transform = Transform3D(0.99996847, 0, 0, 0, 0.99997985, 0, 0, 0, 0.9999729, -2.432357, 0.9345329, 3.4214249)
 DNA = SubResource("Resource_sreuk")
-current_dest = Vector3(6.1906223, 0.3481394, -2.4677048)

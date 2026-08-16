@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cogd2wkqjgfr1"]
 
 [ext_resource type="PackedScene" uid="uid://c1oxd3eyeg1qv" path="res://Mii/MiiCharacter/BiiCharacter.tscn" id="1_1w476"]
+[ext_resource type="Script" uid="uid://dg37pxtq760q0" path="res://bii_editor.gd" id="1_mavc3"]
 [ext_resource type="Script" uid="uid://b0hte006srv1t" path="res://Mii/MiiData/MiiData.gd" id="2_mavc3"]
 
 [sub_resource type="Resource" id="Resource_qrlva"]
 script = ExtResource("2_mavc3")
+height = 0.5
 metadata/_custom_type_script = "uid://b0hte006srv1t"
 
 [sub_resource type="Environment" id="Environment_otpid"]
@@ -18,13 +20,15 @@ ssil_enabled = true
 [sub_resource type="PrismMesh" id="PrismMesh_otpid"]
 
 [node name="BiiEditor" type="Node3D" unique_id=1530963408]
+script = ExtResource("1_mavc3")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=496679304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
 
 [node name="BiiCharacter" parent="." unique_id=448801977 instance=ExtResource("1_1w476")]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0, 0)
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0.5, 0)
 DNA = SubResource("Resource_qrlva")
+wander_around = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1093388147]
 environment = SubResource("Environment_otpid")
@@ -83,6 +87,82 @@ layout_mode = 2
 layout_mode = 2
 text = "Make your Bii !"
 
-[node name="HSlider" type="HSlider" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=708874657]
+[node name="HeightLabel" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1505170769]
+layout_mode = 2
+text = "Height"
+
+[node name="HeightSlider" type="HSlider" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=708874657]
 layout_mode = 2
 size_flags_horizontal = 3
+min_value = 0.5
+max_value = 1.5
+step = 0.01
+value = 1.0
+
+[node name="TopRadiusLabel" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1720942165]
+layout_mode = 2
+text = "Top Radius"
+
+[node name="TopRadiusSlider" type="HSlider" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=424002833]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="BotRadiusLabel" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1994629862]
+layout_mode = 2
+text = "Bottom Radius"
+
+[node name="BotRadiusSlider" type="HSlider" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1899939817]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="LegLengthLabel" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1581546979]
+layout_mode = 2
+text = "Leg Length"
+
+[node name="LegLengthSlider" type="HSlider" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1778317757]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 1.3
+step = 0.01
+value = 1.0
+
+[node name="HandRadiusLabel" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1032660314]
+layout_mode = 2
+text = "Hand Radius"
+
+[node name="HandRadiusSlider" type="HSlider" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1118916452]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.05
+max_value = 1.3
+step = 0.01
+value = 1.0
+
+[node name="BiiName" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=730138321]
+layout_mode = 2
+text = "Name"
+
+[node name="LineEdit" type="LineEdit" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1304108253]
+layout_mode = 2
+placeholder_text = "name ..."
+
+[node name="SaveButton" type="Button" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=2137765937]
+layout_mode = 2
+text = "Save !"
+
+[connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/HeightSlider" to="." method="change_height"]
+[connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/TopRadiusSlider" to="." method="change_top_radius"]
+[connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/BotRadiusSlider" to="." method="change_bot_radius"]
+[connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/LegLengthSlider" to="." method="change_leg_length"]
+[connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/HandRadiusSlider" to="." method="change_hand_radius"]
+[connection signal="text_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/LineEdit" to="." method="change_username"]
+[connection signal="pressed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/SaveButton" to="." method="save"]

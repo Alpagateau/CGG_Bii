@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GCC-Mii"
-run/main_scene="uid://6h5qkgamwe82"
+run/main_scene="uid://cogd2wkqjgfr1"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,7 +22,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/display_vector3d/plugin.cfg")
+enabled=PackedStringArray()
 
 [physics]
 
