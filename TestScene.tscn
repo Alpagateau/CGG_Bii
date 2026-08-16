@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6h5qkgamwe82"]
 
 [ext_resource type="PackedScene" uid="uid://c1oxd3eyeg1qv" path="res://Mii/MiiCharacter/BiiCharacter.tscn" id="1_mncer"]
+[ext_resource type="Script" uid="uid://dvgyfs3lxnkgo" path="res://test_scene.gd" id="1_wicfy"]
 [ext_resource type="Script" uid="uid://b0hte006srv1t" path="res://Mii/MiiData/MiiData.gd" id="2_cguwc"]
 
 [sub_resource type="Environment" id="Environment_otpid"]
@@ -33,7 +34,8 @@ size = Vector3(1.63, 1.29, 1)
 
 [sub_resource type="Resource" id="Resource_cguwc"]
 script = ExtResource("2_cguwc")
-favourite_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+username = "aa"
+favourite_color = Color(0.7920855, 0.20087251, 0.17286053, 1)
 skin_color = Color(0.39, 0.18642001, 0.050699998, 1)
 height = 1.5
 top_radius = 2.0
@@ -60,6 +62,7 @@ leg_length = 0.645
 metadata/_custom_type_script = "uid://b0hte006srv1t"
 
 [node name="Node3D" type="Node3D" unique_id=528217428]
+script = ExtResource("1_wicfy")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1381499849]
 transform = Transform3D(1, 0, 0, 0, 0.8911877, 0.45363474, 0, -0.45363474, 0.8911877, 2.286, 5.531, 10.44)
@@ -107,10 +110,10 @@ shadow_enabled = true
 omni_range = 6.619759
 
 [node name="Guy" parent="." unique_id=448801977 instance=ExtResource("1_mncer")]
-transform = Transform3D(0.99996835, 0, 0, 0, 0.99996436, 0, 0, 0, 0.99996877, 4.624649, 0.49802774, -3.4963577)
+transform = Transform3D(0.99996835, 0, 0, 0, 0.99996436, 0, 0, 0, 0.99996877, -1.0551294, 1.0053477, -0.48276633)
 DNA = SubResource("Resource_cguwc")
 use_navigation = true
-current_dest = Vector3(7.1094785, 0.34813938, -7.3252273)
+current_dest = Vector3(0.64042455, 1.0981394, -6.197262)
 
 [node name="BiiCharacter" parent="." unique_id=1343267674 instance=ExtResource("1_mncer")]
 transform = Transform3D(0.9999663, 0, 0, 0, 0.9999864, 0, 0, 0, 0.9999756, 1.6068624, 0.88790417, 0.85459566)
@@ -119,3 +122,10 @@ DNA = SubResource("Resource_1fkdn")
 [node name="BiiCharacter2" parent="." unique_id=1445243662 instance=ExtResource("1_mncer")]
 transform = Transform3D(0.99996847, 0, 0, 0, 0.99997985, 0, 0, 0, 0.9999729, -2.432357, 0.9345329, 3.4214249)
 DNA = SubResource("Resource_sreuk")
+
+[node name="Button" type="Button" parent="." unique_id=380473816]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "go to edit"
+
+[connection signal="pressed" from="Button" to="." method="load_edit"]

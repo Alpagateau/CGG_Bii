@@ -18,6 +18,8 @@ class_name BiiCharacter
 @export var head   : MeshInstance3D
 @export var larm   : MeshInstance3D
 @export var rarm   : MeshInstance3D
+@export var lhand : MeshInstance3D
+@export var rhand : MeshInstance3D
 
 var body_mat     : StandardMaterial3D
 var hand_mat     : StandardMaterial3D
@@ -53,6 +55,14 @@ func _ready():
 		print("navigation was disabled due to missing NavigationRegion3D at \
 		BiiCharacter level.")
 		use_navigation = false
+	
+	body.material_override = body_mat
+	rarm.material_override = body_mat
+	larm.material_override = body_mat
+	rhand.material_override = hand_mat
+	lhand.material_override = hand_mat
+	
+	head.material_override = head_mat
 
 func change_bii():
 	print("Change bii")
@@ -66,9 +76,6 @@ func change_bii():
 	hand_mat.albedo_color = DNA.skin_color
 	head_mat.albedo_texture = DNA.head_texture
 	
-	#body.material_override = body_mat
-	#rarm.material_override = body_mat
-	#larm.material_override = body_mat
 	
 # Needs the movement vector as step
 func move_to(step: Vector3):

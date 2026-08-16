@@ -32,7 +32,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_1fkdn")
 blend_point_3/pos = Vector2(0, 1)
 blend_point_3/name = &"metarig|mixamo_com|Layer0"
 
-[node name="BiiCharacter" type="Node3D" unique_id=23354854 node_paths=PackedStringArray("scaler", "body", "head", "larm", "rarm", "anim_tree")]
+[node name="BiiCharacter" type="Node3D" unique_id=23354854 node_paths=PackedStringArray("scaler", "body", "head", "larm", "rarm", "lhand", "rhand", "anim_tree")]
 script = ExtResource("1_1fkdn")
 DNA = ExtResource("5_2jogr")
 scaler = NodePath("Guy/metarig_004/GeneralSkeleton/SkeletonScaler3D")
@@ -40,6 +40,8 @@ body = NodePath("Guy/metarig_004/GeneralSkeleton/Body")
 head = NodePath("Guy/metarig_004/GeneralSkeleton/Head")
 larm = NodePath("Guy/metarig_004/GeneralSkeleton/LeftArm")
 rarm = NodePath("Guy/metarig_004/GeneralSkeleton/RightArm")
+lhand = NodePath("Guy/metarig_004/GeneralSkeleton/LeftHand")
+rhand = NodePath("Guy/metarig_004/GeneralSkeleton/RightHand")
 use_navigation = false
 anim_tree = NodePath("AnimationTree")
 
@@ -53,19 +55,19 @@ transform = Transform3D(2.0928214, 0, 0, 0, 0, -2.0928214, 0, 2.0928214, 0, 0.02
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.99999994, 0, 0, 0)
 
 [node name="GeneralSkeleton" parent="Guy/metarig_004" index="0" unique_id=10120217]
-bones/1/rotation = Quaternion(-0.0054975282, -3.9970766e-11, -1.2819771e-09, 0.999985)
-bones/2/rotation = Quaternion(-0.0091574015, 6.9460396e-11, 2.1822057e-09, 0.9999581)
-bones/3/rotation = Quaternion(-0.019671027, 4.136776e-14, -1.2888835e-14, 0.9998066)
+bones/1/rotation = Quaternion(-0.013620147, -9.8977e-11, -3.176061e-09, 0.99990726)
+bones/2/rotation = Quaternion(-0.014760658, 1.11992915e-10, 3.517451e-09, 0.99989116)
+bones/3/rotation = Quaternion(-0.012590707, 2.146366e-14, -1.2955764e-14, 0.9999207)
 bones/4/rotation = Quaternion(-3.9115548e-08, -2.2624851e-15, 3.8760817e-14, 1)
 bones/5/rotation = Quaternion(8.4703295e-22, 1.0658141e-14, 1.0658141e-14, 1)
-bones/6/rotation = Quaternion(-0.010229743, 1.1920308e-07, 1.2194854e-09, 0.99994767)
+bones/6/rotation = Quaternion(-0.027207745, 1.19165186e-07, 3.2434175e-09, 0.9996298)
 bones/8/rotation = Quaternion(0.49999994, 0.50000006, 0.50000006, -0.49999994)
-bones/9/rotation = Quaternion(8.352794e-05, 0.9609438, -0.27674377, -6.6337736e-05)
-bones/10/rotation = Quaternion(-0.012243885, -0.70667124, 0.013509636, 0.7073071)
+bones/9/rotation = Quaternion(-0.00045405564, 0.97237104, -0.2334404, 0.00022188088)
+bones/10/rotation = Quaternion(-0.032661296, -0.70528704, 0.035515286, 0.70727795)
 bones/11/rotation = Quaternion(3.7252903e-09, 0.70710677, 3.7252903e-09, 0.70710677)
 bones/13/rotation = Quaternion(0.49999994, -0.50000006, -0.50000006, -0.49999994)
-bones/14/rotation = Quaternion(0.0006501868, 0.9412992, -0.33757287, 7.1698933e-06)
-bones/15/rotation = Quaternion(-0.0014985494, 0.70714676, -0.0019372086, 0.7070625)
+bones/14/rotation = Quaternion(0.0005922777, 0.9516717, -0.30711535, -0.00095989497)
+bones/15/rotation = Quaternion(-0.021115078, 0.70605457, -0.023098359, 0.70746565)
 bones/16/rotation = Quaternion(-7.450581e-09, -0.70710677, 7.450581e-09, 0.70710677)
 bones/18/rotation = Quaternion(-1.5640911e-07, 0.7071068, 0.7071068, -1.6381027e-07)
 bones/20/rotation = Quaternion(-1.5640911e-07, 0.7071068, 0.7071068, -1.6381027e-07)
