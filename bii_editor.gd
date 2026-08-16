@@ -40,8 +40,8 @@ func change_hand_radius(value : float):
 func change_username(value : String):
 	data.username = value
 	
-func get_path_str(name : String) -> String:
-	return "user://mii." + name + ".tres"
+func get_path_str(pname : String) -> String:
+	return "user://mii." + pname + ".tres"
 
 func save():
 	var path = get_path_str(data.username)
@@ -53,10 +53,10 @@ func save():
 
 # Need to create a dedicated panel to find which mii to load.
 func load() -> bool:
-	var name = data.username
-	var path = get_path_str(name)
+	var p_name = data.username
+	var path = get_path_str(p_name)
 	if not ResourceLoader.exists(path):
-		printerr("mii '" + name + "' could not be found at " + path + ".")
+		print_debug("mii '" + p_name + "' could not be found at " + path + ".")
 		return false
 	var res := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
 	
