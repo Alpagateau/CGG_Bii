@@ -19,8 +19,14 @@ ssil_enabled = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_otpid"]
 
-[node name="BiiEditor" type="Node3D" unique_id=1530963408]
+[node name="BiiEditor" type="Node3D" unique_id=1530963408 node_paths=PackedStringArray("height_slider", "top_slider", "bot_slider", "leg_slider", "hand_slider", "name_input")]
 script = ExtResource("1_mavc3")
+height_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/HeightSlider")
+top_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/TopRadiusSlider")
+bot_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/BotRadiusSlider")
+leg_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/LegLengthSlider")
+hand_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/HandRadiusSlider")
+name_input = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/LineEdit")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=496679304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
@@ -159,6 +165,14 @@ placeholder_text = "name ..."
 layout_mode = 2
 text = "Save !"
 
+[node name="Load" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=141081219]
+layout_mode = 2
+text = "Load"
+
+[node name="LoadButton" type="Button" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=499988548]
+layout_mode = 2
+text = "Load"
+
 [connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/HeightSlider" to="." method="change_height"]
 [connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/TopRadiusSlider" to="." method="change_top_radius"]
 [connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/BotRadiusSlider" to="." method="change_bot_radius"]
@@ -166,3 +180,4 @@ text = "Save !"
 [connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/HandRadiusSlider" to="." method="change_hand_radius"]
 [connection signal="text_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/LineEdit" to="." method="change_username"]
 [connection signal="pressed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/SaveButton" to="." method="save"]
+[connection signal="pressed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/LoadButton" to="." method="load"]

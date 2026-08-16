@@ -1,14 +1,26 @@
 extends Node3D
 
 var data :  MiiData
+
+@export var height_slider : Slider
+@export var top_slider : Slider
+@export var bot_slider : Slider
+@export var leg_slider : Slider
+@export var hand_slider : Slider
+@export var name_input : LineEdit
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	init()
+
+func init():
 	data = $BiiCharacter.DNA
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+	height_slider.value = data.height
+	top_slider.value = data.top_radius
+	bot_slider.value = data.bottom_radius
+	leg_slider.value = data.leg_length
+	hand_slider.value = data.hand_radius
+	name_input.text = data.username
 
 func change_height(value : float):
 	data.height = value
@@ -32,14 +44,16 @@ func get_path_str(name : String) -> String:
 	return "user://mii." + name + ".tres"
 
 func save():
-	var err = ResourceSaver.save(data, get_path_str(data.username))
+	var path = get_path_str(data.username)
+	var err = ResourceSaver.save(data, path)
 	if err != OK:
 		printerr("Save failed: %s" % error_string(err))
 	else:
-		print("saved successfully")
+		print("saved successfully at " + path)
 
 # Need to create a dedicated panel to find which mii to load.
-func load(name : String) -> bool:
+func load() -> bool:
+	var name = data.username
 	var path = get_path_str(name)
 	if not ResourceLoader.exists(path):
 		printerr("mii '" + name + "' could not be found at " + path + ".")
@@ -47,6 +61,7 @@ func load(name : String) -> bool:
 	var res := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
 	
 	if res is MiiData:
-		$BiiCharacter.DNA = res # hope data is a pointer lol
+		$BiiCharacter.DNA = res
+		init()
 		return true
 	return false
