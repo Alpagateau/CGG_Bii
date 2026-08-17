@@ -2,12 +2,17 @@ extends Node3D
 
 var data :  MiiData
 
+@export_category("Sliders")
 @export var height_slider : Slider
 @export var top_slider : Slider
 @export var bot_slider : Slider
 @export var leg_slider : Slider
 @export var hand_slider : Slider
 @export var name_input : LineEdit
+@export_category("Colors")
+var current_modified_part: int
+@export var color_picker : ColorPicker
+@export var part_picker : OptionButton
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	init()
@@ -21,6 +26,9 @@ func init():
 	leg_slider.value = data.leg_length
 	hand_slider.value = data.hand_radius
 	name_input.text = data.username
+	
+	part_picker.selected = 0
+	color_picker.color = data.favourite_color
 
 func change_height(value : float):
 	data.height = value
@@ -42,6 +50,23 @@ func change_username(value : String):
 	
 func get_path_str(pname : String) -> String:
 	return "user://mii." + pname + ".tres"
+	
+func change_color(color: Color):
+	match current_modified_part:
+		0:
+			data.favourite_color = color
+		1:
+			data.skin_color = color
+		_:
+			print("wtf")
+	$BiiCharacter.change_bii()
+
+func switch_part_to_color(new_part: int):
+	current_modified_part = new_part
+	if current_modified_part == 0:
+		color_picker.color = data.favourite_color
+	else:
+		color_picker.color = data.skin_color
 
 func save():
 	var path = get_path_str(data.username)

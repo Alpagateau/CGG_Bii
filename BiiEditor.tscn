@@ -19,7 +19,7 @@ ssil_enabled = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_otpid"]
 
-[node name="BiiEditor" type="Node3D" unique_id=1530963408 node_paths=PackedStringArray("height_slider", "top_slider", "bot_slider", "leg_slider", "hand_slider", "name_input")]
+[node name="BiiEditor" type="Node3D" unique_id=1530963408 node_paths=PackedStringArray("height_slider", "top_slider", "bot_slider", "leg_slider", "hand_slider", "name_input", "color_picker", "part_picker")]
 script = ExtResource("1_mavc3")
 height_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/HeightSlider")
 top_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/TopRadiusSlider")
@@ -27,6 +27,8 @@ bot_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/BotRadiusS
 leg_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/LegLengthSlider")
 hand_slider = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/HandRadiusSlider")
 name_input = NodePath("UI/HBoxContainer/MarginContainer/VBoxContainer/LineEdit")
+color_picker = NodePath("UI/HBoxContainer/ColorMarginContainer/ColorVBoxContainer/ColorPicker")
+part_picker = NodePath("UI/HBoxContainer/ColorMarginContainer/ColorVBoxContainer/OptionButton")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=496679304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
@@ -78,6 +80,36 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
+
+[node name="ColorMarginContainer" type="MarginContainer" parent="UI/HBoxContainer" unique_id=260384383]
+layout_mode = 2
+
+[node name="ColorVBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/ColorMarginContainer" unique_id=1642572596]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/ColorMarginContainer/ColorVBoxContainer" unique_id=195116499]
+layout_mode = 2
+text = "Currently choosing color for:"
+
+[node name="OptionButton" type="OptionButton" parent="UI/HBoxContainer/ColorMarginContainer/ColorVBoxContainer" unique_id=636990902]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Favourite"
+popup/item_0/id = 0
+popup/item_1/text = "Skin"
+popup/item_1/id = 1
+
+[node name="ColorPicker" type="ColorPicker" parent="UI/HBoxContainer/ColorMarginContainer/ColorVBoxContainer" unique_id=85725538]
+layout_mode = 2
+edit_alpha = false
+edit_intensity = false
+picker_shape = 2
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/HBoxContainer" unique_id=75472244]
 layout_mode = 2
@@ -165,14 +197,12 @@ placeholder_text = "name ..."
 layout_mode = 2
 text = "Save !"
 
-[node name="Load" type="Label" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=141081219]
-layout_mode = 2
-text = "Load"
-
 [node name="LoadButton" type="Button" parent="UI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=499988548]
 layout_mode = 2
 text = "Load"
 
+[connection signal="item_selected" from="UI/HBoxContainer/ColorMarginContainer/ColorVBoxContainer/OptionButton" to="." method="switch_part_to_color"]
+[connection signal="color_changed" from="UI/HBoxContainer/ColorMarginContainer/ColorVBoxContainer/ColorPicker" to="." method="change_color"]
 [connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/HeightSlider" to="." method="change_height"]
 [connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/TopRadiusSlider" to="." method="change_top_radius"]
 [connection signal="value_changed" from="UI/HBoxContainer/MarginContainer/VBoxContainer/BotRadiusSlider" to="." method="change_bot_radius"]
